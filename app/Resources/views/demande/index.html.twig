@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="row" id="boc">
+    <div class="container">
+      <div class="col-md-12"> <h1>Liste de demandes</h1>
+        <div class="row">
+         {% for demande in demandes %}
+
+          <div class="col-md-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">Demande</div>
+              <div class="panel-body">
+               <table class="table table-striped"   style="height:150px">
+
+                <body>
+
+                 <tr>
+                   <th>Id</th>
+                   <th>Titrelivre</th>
+                   <th>Description</th>
+                   <th>Datedemande</th>
+
+                 </tr>
+
+
+                 <tr>
+
+                  <td><a href="{{ path('demande_demande_show', { 'id': demande.id }) }}">{{ demande.id }}</a></td>
+                  <td>{{ demande.titreLivre }}</td>
+                  <td>{{ demande.description }}</td>
+                  <td>{% if demande.dateDemande %}{{ demande.dateDemande|date('Y-m-d H:i:s') }}{% endif %}</td>
+
+                </tr>
+              </body>    
+            </table>
+          </div>
+
+          <div class="panel panel-footer">
+            <div class="row">
+
+              <div class="col-md-9">
+                <i class="fa fa-eye"></i>
+
+                <a href="{{ path('demande_demande_show', { 'id': demande.id }) }}">Voir</a>
+              </div>  
+
+              <div class="col-md-1">
+                <!--<i class="fa fa-eye"></i>-->
+
+                <a href="{{ path('demande_demande_edit', { 'id': demande.id }) }}">Modifier</a>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>    
+    {% endfor %}  
+
+
+  </div>
+
+
+</div>
+</div>
+
+<div class="row">
+  <ul>
+    <li>
+      <p align="right"><a href="{{ path('demande_demande_new') }}" class="btn btn-success">Nouvelle demande</a></p>
+    </li>
+  </ul>
+
+</div>
+<div class="navigation">
+  {{ knp_pagination_render(demandes) }}
+</div>
+</div>
+</div>
+{% endblock %}

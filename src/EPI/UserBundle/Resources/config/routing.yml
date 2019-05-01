@@ -1,0 +1,67 @@
+epi_user_categorie_categorie:
+    resource: "@EPIUserBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie/categorie
+
+
+epi_user_sous_categorie_sous_categorie:
+    resource: "@EPIUserBundle/Resources/config/routing/sous_categorie.yml"
+    prefix:   /sous_categorie/sous_categorie
+
+epi_user_livres_livres:
+    resource: "@EPIUserBundle/Resources/config/routing/livres.yml"
+    prefix:   /livres/livres
+
+
+epi_user_demande_demande:
+        resource: "@EPIUserBundle/Resources/config/routing/demande.yml"
+        prefix:   /demande/demande
+
+
+
+   
+
+epi_user_homepage:
+    path:     /home
+    defaults: { _controller: EPIUserBundle:Default:index }
+
+test_role_user:
+    path:     /user
+    defaults: { _controller: EPIUserBundle:User:user }
+
+test_role_admin:
+    path:     /admin
+    defaults: { _controller: EPIUserBundle:Admin:admin }
+
+test_requette:
+    path:   /afficherStatu
+    defaults: { _controller: EPIUserBundle:Exemp:afficherStatus}
+
+
+
+status_affiche:
+    path:   /status/afficherStatus
+    defaults: { _controller: EPIUserBundle:status:afficherStatus}
+
+status_publier:
+    path:   /status/publierStatus
+    defaults: { _controller: EPIUserBundle:status:publierStatus}
+
+
+
+commentaire_affiche:
+    path:   /commentaire/afficherCommentaire
+    defaults: { _controller: EPIUserBundle:Commentaires:afficherCommentaire}
+
+commentaire_publier:
+    path:   /commentaire/publierCommentaire
+    defaults: { _controller: EPIUserBundle:Commentaires:ajoutercommentaire}
+
+
+
+
+
+
+
+
+
+

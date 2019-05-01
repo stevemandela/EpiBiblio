@@ -1,0 +1,24 @@
+sous_categorie_sous_categorie_index:
+    path:     /
+    defaults: { _controller: "EPIUserBundle:sous_categorie:index" }
+    methods:  GET
+
+sous_categorie_sous_categorie_show:
+    path:     /{id}/show
+    defaults: { _controller: "EPIUserBundle:sous_categorie:show" }
+    methods:  GET
+
+sous_categorie_sous_categorie_new:
+    path:     /new
+    defaults: { _controller: "EPIUserBundle:sous_categorie:new" }
+    methods:  [GET, POST]
+
+sous_categorie_sous_categorie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EPIUserBundle:sous_categorie:edit" }
+    methods:  [GET, POST]
+
+sous_categorie_sous_categorie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EPIUserBundle:sous_categorie:delete" }
+    methods:  DELETE

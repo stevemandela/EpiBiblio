@@ -1,0 +1,4 @@
+services:
+#    epi_inscription.example:
+#        class: EPI\InscriptionBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

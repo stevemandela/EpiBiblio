@@ -1,0 +1,17 @@
+
+
+{% extends "::base.html.twig" %}
+
+{% block title %}EPIUserBundle:Status:afficherStatus{% endblock %}
+
+{% block body %}
+{% for stat in status }
+	<p>{{stat.publication}}</p>
+	<form action="{{path('commentaire_publier')}}" method="get">
+		<textarea name="commetaire"></textarea>
+		<input type="hidden" name="idstatus" value="{{stat.id}}">
+		<input type="submit" value="commenter">
+	</form>
+{% endfor %}
+{% endblock %}
+

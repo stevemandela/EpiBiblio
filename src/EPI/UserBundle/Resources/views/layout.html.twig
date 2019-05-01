@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+
+{% block title %}{{parent()}}  -Home{% endblock %}
+
+{% block titre %} {{parent()|upper}} -Connexion{% endblock %}
+	{% block navbar %}
+
+	    
+	{% endblock %}
+{% block body %}
+<style media="screen">
+	body{
+		background-image: url("https://myepi.episousse.com.tn/img/epi.png");
+		background-size: cover;
+
+		/*background-size: 100% 100%;*/
+	}
+	
+</style>
+ 				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                Connecter en tant que {{app.user.username}}
+                -
+                <a href="{{ path('fos_user_security_logout') }}">
+                   Deconnexion
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}"></a>
+            {% endif %}
+
+	{% block fos_user_content %}
+
+	{% endblock fos_user_content %}
+
+
+{% endblock %}
+{% block footer %}
+    
+{% endblock %}

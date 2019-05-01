@@ -1,0 +1,10 @@
+{% extends "EPIUserBundle::layout.html.twig" %}
+
+{% block body %}
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		Hello vous etes connecté en tant que {{ app.user.username }}
+		<a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+	{% endif %}
+
+{% endblock %}	

@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="row" id="boc">
+    <div class="container">
+      <div class="col-md-12"> <h1>Liste des livres</h1>
+        <div class="row">
+          {% for livre in livres %}
+            
+            <div class="col-md-6">
+              <div class="panel panel-info">
+                <div class="panel-heading">Livre</div>
+                <div class="panel-body">
+                  <table class="table table-striped">
+
+                    <body>
+                      <tr>
+                       <th>Id</th>  
+                       <th>Image</th>
+                       <th>Creation</th>
+                       <th>Vue</th>
+                       <th>Téléchargement</th>
+                       
+                     </tr>
+
+                     <tr>
+                      <td>{{livre.id}}</td>
+                      <td><a href="{{ path('livres_livres_show', { 'id': livre.id }) }}"><img src="{{ asset('uploads/brochure/' ~ livre.image)}}" style="width:100px; height:120px"</a></td>
+                      <td>{% if livre.dateCreation %}{{ livre.dateCreation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                      <td>{{ livre.nombreVue }}</td>
+                      <td>{{ livre.nombreTelechargement }}</td>
+                      
+
+
+                    </tr>
+
+                  </body>
+                </table>  
+              </div>
+
+              <div class="panel panel-footer">
+                <div class="row">
+
+                  <div class="col-md-8">
+                    <i class="fa fa-eye"></i>
+
+                    <a href="{{ asset('uploads/brochures/' ~ livre.brochure) }}">Voir livre (PDF)</a>
+                  </div>
+
+                 {# <div class="col-md-4">
+                    <i class="fa fa-eye"></i>
+                    <a href="{{ path('livres_livres_show', { 'id': livre.id }) }}">show</a>
+                  </div>
+
+                 {# <div class="col-md-2">
+                   <i class="fa fa-eye"></i>
+                   <a href="{{ path('livres_livres_edit', { 'id': livre.id }) }}">edit</a>
+                 </div>#}
+
+                 <div class="col-md-1">
+
+                  <a href="{{ path('comment_edit', { 'id': livre.id }) }}">Commentaire</a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      {% endfor %}
+    </div>
+
+    <ul>
+
+      <li>
+
+       <li>
+        <p align="right"><a href="{{ path('livres_livres_new') }}" class="btn btn-success">Mettre un nouveau livre</a></p>
+      </li>
+    </li>
+
+  </ul>
+</div>   
+<div class="navigation">
+ {{ knp_pagination_render(livres) }}
+</div>
+
+
+</div>
+
+</div>
+{% endblock %}

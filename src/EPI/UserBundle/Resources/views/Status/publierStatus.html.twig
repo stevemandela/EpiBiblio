@@ -1,0 +1,14 @@
+
+{% extends "::base.html.twig" %}
+
+{% block title %}EPIUserBundle:Status:publierStatus{% endblock %}
+
+{% block body %}
+{{form(form)}}
+{#{% for status in statusses%}
+    {{status.contenu}}
+    <form action="{{path('commenter')}}">
+    <textarea name="name-{{status.id}}"> </textarea>
+    <input type="submit" value="commenter">
+{% endfor %}-->#}
+{% endblock %}

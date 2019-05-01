@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Livre</h1>
+
+    <section id="home" class="home">
+        <div class="overlay">
+            <div class="row" id="boc">
+                <div class="container">
+                    <div class="col-md-8">
+                        <div class="text-center center-block ">
+                            <h1><i class="fa fa-meetup fa-lg"></i>
+                                <img src="{{ asset('uploads/brochure/' ~ livre.image)}}" width="100px">
+
+                            </h1>  
+                            <p><i class="fa fa-clock-o"></i>
+                                {% if livre.dateCreation %}{{ livre.dateCreation|date('Y-m-d H:i:s') }}{% endif %}
+                                </p>  
+                                <p>
+
+                                  <a class="btn btn-sm btn-info"href="{{ path('livres_livres_edit', { 'id': livre.id }) }}">
+                                    <i class="fa fa-pencil-square"></i>Edit</a>
+
+                                    <a class="btn btn-ar btn-info" href="{{ path('livres_livres_index') }}">
+                                        <i class="fa fa-calendar"></i>
+                                        Back to the list
+                                    </a>
+
+
+                                </p>   
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 table-responsive">
+                            <table class="table table-responsive table-hover ">
+                               <tbody >
+                                  <tr>
+                                   <th>Ajouter par :</th>
+                                   <td>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                             {{  app.user.username }}
+                                   
+                                       {% endif %}
+                                    </td>
+                               </tr>
+                               <tr>
+                                   <th>Ajouter le:</th>
+                                   <td>
+                                     {{ livre.dateCreation|date('Y-m-d H:i:s') }}
+
+                                 </td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div> 
+             </div> 
+         </div> 
+     </div> 
+ </section>          
+
+
+
+ <div class="container-fluid">
+   
+    <div class="panel">
+        <div class="panel-heading">
+            <h2>Commentaire</h2>
+        </div>
+        <div class="panel-body">
+            {% for commentaire in listCommentaire %}
+                <ul>
+                    <li>
+                        <div class="row">
+                            <div class="col-md-6"> {{commentaire.commentaire}}</div>
+                            <div class="col-md-3"> 
+                                {% if commentaire.dateCommentaire %}{{ commentaire.dateCommentaire|date('Y-m-d H:i:s') }}{% endif %}
+                                </div>
+                                <div class="col-md-3"> {{commentaire.User}}</div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <ul>
+       
+        <li>
+            {{ form_start(delete_form) }}
+           <p align="center"> <input type="submit" value="Delete" class="btn btn-danger"></p>
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+</div>
+{% endblock %}

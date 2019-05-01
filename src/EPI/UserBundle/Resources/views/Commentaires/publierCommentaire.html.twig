@@ -1,0 +1,18 @@
+
+{% extends "::base.html.twig" %}
+
+{% block title %}EPIUserBundle:Commentaire:publierCommentaire{% endblock %}
+
+	{% block body %}
+		<div class="row" id="boc">
+			<div class="container">
+				<h1>Commentaire </h1>
+				{{form_start(form)}}
+				{{form_widget(form)}}
+
+				{{form_widget(form.Commentaire,{'attr': {'class':'btn btn-primary'}})}}
+
+				{{form_end(form)}}
+			</div>
+		</div>
+	{% endblock %}

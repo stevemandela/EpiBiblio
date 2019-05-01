@@ -1,0 +1,3 @@
+epi_inscription_homepage:
+    path:     /
+    defaults: { _controller: EPIInscriptionBundle:Default:index }

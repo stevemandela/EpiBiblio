@@ -1,0 +1,24 @@
+demande_demande_index:
+    path:     /
+    defaults: { _controller: "EPIUserBundle:demande:index" }
+    methods:  GET
+
+demande_demande_show:
+    path:     /{id}/show
+    defaults: { _controller: "EPIUserBundle:demande:show" }
+    methods:  GET
+
+demande_demande_new:
+    path:     /new
+    defaults: { _controller: "EPIUserBundle:demande:new" }
+    methods:  [GET, POST]
+
+demande_demande_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EPIUserBundle:demande:edit" }
+    methods:  [GET, POST]
+
+demande_demande_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EPIUserBundle:demande:delete" }
+    methods:  DELETE

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container" id="boc">
+    <h1>Livre creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_row(form.brochure)}}
+        <input type="submit" value="Create" class="btn btn-success"/>
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <p align="center"><a href="{{ path('livres_livres_index') }}" class="btn btn-default">Back to the list</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

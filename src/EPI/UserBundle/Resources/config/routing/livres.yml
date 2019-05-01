@@ -1,0 +1,24 @@
+livres_livres_index:
+    path:     /
+    defaults: { _controller: "EPIUserBundle:livres:index" }
+    methods:  GET
+
+livres_livres_show:
+    path:     /{id}/show
+    defaults: { _controller: "EPIUserBundle:livres:show" }
+    methods:  GET
+
+livres_livres_new:
+    path:     /new
+    defaults: { _controller: "EPIUserBundle:livres:new" }
+    methods:  [GET, POST]
+
+livres_livres_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EPIUserBundle:livres:edit" }
+    methods:  [GET, POST]
+
+livres_livres_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EPIUserBundle:livres:delete" }
+    methods:  DELETE
